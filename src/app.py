@@ -39,8 +39,8 @@ if st.button('Predict'):
         # Then do the prediction and covert the class number that the
         # model returns to a human readable string, like 'diabetic' etc.
         prediction = str(model.predict([[val1, val2, val3, val4]])[0])
-    pred_class = class_dict[prediction]
-    st.write("Prediction:", pred_class)
+pred_class = class_dict[prediction]
+st.write("Prediction:", pred_class)
 
     # Display the prediction to the user
-    st.write('Prediction:', predicted_class)
+st.write('Prediction:', predicted_class)
