@@ -23,6 +23,11 @@ st.title('Diabetes prediction')
 # for a hint on how to do this. Also, if you are using the model
 # supplied above, you need to send it four features: Glucose,
 # Insulin, BMI and Age
+val1 = st.slider("Glucose", min_value = 0.0, max_value = 4.0, step = 0.1)
+val2 = st.slider("Insulin", min_value = 0.0, max_value = 4.0, step = 0.1)
+val3 = st.slider("BMI", min_value = 0.0, max_value = 4.0, step = 0.1)
+val4 = st.slider("Age ", min_value = 0.0, max_value = 4.0, step = 0.1)
+
 
 # When the user clicks 'Predict'
 if st.button('Predict'):
@@ -33,6 +38,9 @@ if st.button('Predict'):
 
         # Then do the prediction and covert the class number that the
         # model returns to a human readable string, like 'diabetic' etc.
+        prediction = str(model.predict([[val1, val2, val3, val4]])[0])
+    pred_class = class_dict[prediction]
+    st.write("Prediction:", pred_class)
 
     # Display the prediction to the user
     st.write('Prediction:', predicted_class)
